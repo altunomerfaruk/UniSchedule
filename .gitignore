@@ -1,0 +1,48 @@
+backend/.venv/
+**/__pycache__/
+backend/backups/
+.pdf-tools/
+.pdf-review/
+frontend/node_modules/
+frontend/dist/
+frontend/*.tsbuildinfo
+review-*.png
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Python
+*.pyc
+*.pyo
+**/.pytest_cache/
+**/.ruff_cache/
+**/.mypy_cache/
+
+# Local databases
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# Browser test files
+.chrome-*/
+playwright-report/
+test-results/
+
+# Temporary files
+README.cleaned*
+frontend/index.cleaned*.html*
+*.tmp
+*.log
+*.exe
+*.docx
+*.code-workspace
+
+# Operating system
+.DS_Store
+Thumbs.db
+
+# Local credentials
+**/.dev-admin-credentials.json

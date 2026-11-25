@@ -1,0 +1,9 @@
+model = "gpt-6.2-sol"
+model_reasoning_effort = "high"
+developer_instructions = """
+As Supervisor, prepare complex test scenarios and their expected results before handing execution to Tester. Use Tester for routine build and test runs and for executing the scenarios you supply. Follow the existing project coordination rules. Run independent delegated tasks in parallel when safe, reuse agents with the relevant context, and avoid unnecessary agent calls, repeated work, and long polling loops.
+"""
+
+[agents]
+enabled = true
+max_concurrent_threads_per_session = 3

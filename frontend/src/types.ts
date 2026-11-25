@@ -1,0 +1,13 @@
+export type SessionType = 'lecture' | 'laboratory' | 'online' | 'external_training'
+export type Session = { id: number; day: number; start_time: string; end_time: string; room_type: string; room_type_label: string; session_type: SessionType; delivery_mode: 'campus' | 'online' | 'off_campus'; classroom: string | null; instructor: string | null; source_marker: string | null }
+export type Section = { id: number; label: string; course_id: number; course_code: string; course_name: string; offering_department: string; ects: number | null; sessions: Session[] }
+export type Course = { id: number; code: string; name: string; offering_department: string; ects: number | null; credit: number | null; mandatory: boolean | null; weekly_sessions: number; sections: Section[] }
+export type CourseInput = Pick<Course, 'code' | 'name' | 'offering_department' | 'ects' | 'credit' | 'mandatory'>
+export type SectionInput = { label: string }
+export type SessionInput = { day: number; start_time: string; end_time: string; session_type: SessionType; classroom: string | null; instructor: string | null }
+export type MutationResult = { message: string; affected_schedules: number; removed_from_selection?: boolean }
+export type Catalog = { source_notice: string; department: string; period: string; courses: Course[] }
+export type Preferences = { selected_course_ids: number[]; excluded_section_ids: number[]; preferred_free_days: number[]; free_days_hard: boolean; earliest_time: string; latest_time: string; max_campus_days: number; max_ects: number | null; minimize_gaps: boolean }
+export type Alternative = { id?: number; name?: string; status?: 'valid' | 'needs_review' | 'invalid'; invalid_reason?: string | null; score: number; total_ects: number | null; campus_days: number; free_days: number[]; gap_minutes: number; earliest_class: string; latest_class: string; sections: Section[] }
+export type Page = 'Dashboard' | 'Courses' | 'Schedule Generator' | 'My Schedule' | 'Alternatives' | 'Preferences' | 'Settings'
+export const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
